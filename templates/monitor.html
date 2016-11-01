@@ -17,7 +17,7 @@
         </button>
         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
             <li ng-repeat="(name,stat) in minns[0]" >
-                <a ng-click="selectMin(name)">
+                <a ng-click="selectMin(name);loadData(all=true)">
                     <i ng-if="minns[0][name] == true" class="fa fa-circle-o text-green"></i>
                     <i ng-if="minns[0][name] == false" class="fa fa-circle-o text-red"></i>
                         {{ name }}
@@ -42,18 +42,18 @@
             </div>
         </div>
         <!--Memory Usage - used, cached etc. - Area Chart-->
-        <div class="col-xs-6" ng-if="minion.memoryu">
+        <div class="col-xs-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Memory usage</h3>
                 </div>
                 <div class="box-body">
-
+                    {{ memUsage[0] | json }}
                 </div>
             </div>
         </div>
         <!--Virtual Memory-->
-        <div class="col-xs-6" ng-if="minion.vmemoryu">
+        <div class="col-xs-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Virtual memory</h3>
@@ -64,7 +64,7 @@
             </div>
         </div>
         <!--Logged in users, ip,location-->
-        <div class="col-xs-6" ng-if="minion.users">
+        <div class="col-xs-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Online users</h3>
@@ -75,7 +75,7 @@
             </div>
         </div>
         <!--CPU info - Kernel,Operating system,uptime,hostname,number of cpus and proccesor info-->
-        <div class="col-xs-6" ng-if="minion.hwos">
+        <div class="col-xs-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">HW & OS onfo</h3>
@@ -86,7 +86,7 @@
             </div>
         </div>
         <!--load average-->
-        <div class="col-xs-6" ng-if="minion.loada">
+        <div class="col-xs-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Load average</h3>
@@ -97,7 +97,7 @@
             </div>
         </div>
         <!--Internet Traffic-->
-        <div class="col-xs-6" ng-if="minion.internetu">
+        <div class="col-xs-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Internet traffic</h3>
@@ -108,7 +108,7 @@
             </div>
         </div>
         <!--Disk Reads/writes-->
-        <div class="col-xs-6" ng-if="minion.diskrw">
+        <div class="col-xs-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Disk Reads/writes</h3>
@@ -119,7 +119,7 @@
             </div>
         </div>
         <!--Disk usage - each partition(size,used(in GB), available)-->
-        <div class="col-xs-6" ng-if="minion.disku">
+        <div class="col-xs-6">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Disk usage</h3>

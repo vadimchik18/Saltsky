@@ -4,7 +4,15 @@ from django.template import RequestContext
 from django.http import JsonResponse
 
 # Create your views here.
-from models import get_minion
+from models import get_minion, \
+    get_memory_usage, \
+    get_disk_ops, \
+    get_disk_usage, \
+    get_hwos_info, \
+    get_internet_traffic, \
+    get_load_average, \
+    get_online_users, \
+    get_vmemory_usage
 
 
 def get_index_tpl(request):
@@ -22,7 +30,6 @@ def get_minion_v(request):
         ret = get_minion(name)
     except:
         ret = get_minion()
-        print "lolololololol"
     return JsonResponse([ret], safe=False)
 
 
@@ -38,3 +45,35 @@ def handler500(request):
                                   context_instance=RequestContext(request))
     response.status_code = 500
     return response
+
+def get_memory_usage_v(request):
+    ret=get_memory_usage(request.GET.get('minion'))
+    return JsonResponse([ret], safe=False)
+
+def get_vmemory_usage_v(request):
+    ret=get_vmemory_usage(request.GET.get('minion'))
+    return JsonResponse([ret], safe=False)
+
+def get_online_users_v(request):
+    ret=get_online_users(request.GET.get('minion'))
+    return JsonResponse([ret], safe=False)
+
+def get_hwos_info_v(request):
+    ret=get_hwos_info(request.GET.get('minion'))
+    return JsonResponse([ret], safe=False)
+
+def get_load_average_v(request):
+    ret=get_load_average(request.GET.get('minion'))
+    return JsonResponse([ret], safe=False)
+
+def get_internet_traffic_v(request):
+    ret=get_internet_traffic(request.GET.get('minion'))
+    return JsonResponse([ret], safe=False)
+
+def get_disk_ops_v(request):
+    ret=get_disk_ops(request.GET.get('minion'))
+    return JsonResponse([ret], safe=False)
+
+def get_disk_usage_v(request):
+    ret=get_disk_usage(request.GET.get('minion'))
+    return JsonResponse([ret], safe=False)
