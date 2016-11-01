@@ -1,0 +1,135 @@
+   {% verbatim %}
+    <section class="content-header">
+      <h1>
+        Minions list
+        <small>select one to get information</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Minions</li>
+      </ol>
+    </section>
+        <section class="content">
+
+    <div class="btn-group" uib-dropdown keyboard-nav ng-if="!selectedMin">
+        <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" uib-dropdown-toggle>
+            Select a minion <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+            <li ng-repeat="(name,stat) in minns[0]" >
+                <a ng-click="selectMin(name)">
+                    <i ng-if="minns[0][name] == true" class="fa fa-circle-o text-green"></i>
+                    <i ng-if="minns[0][name] == false" class="fa fa-circle-o text-red"></i>
+                        {{ name }}
+                </a>
+            </li>
+            <li class="divider"></li>
+
+        </ul>
+
+    </div>
+
+    <div class="row" ng-if="selectedMin">
+        <!--CPU usage - as a % pie chart(Used Vs Free)-->
+        <div class="col-xs-6" ng-if="minion.cpuu">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">CPU usage</h3>
+                </div>
+                <div class="box-body">
+
+                </div>
+            </div>
+        </div>
+        <!--Memory Usage - used, cached etc. - Area Chart-->
+        <div class="col-xs-6" ng-if="minion.memoryu">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Memory usage</h3>
+                </div>
+                <div class="box-body">
+
+                </div>
+            </div>
+        </div>
+        <!--Virtual Memory-->
+        <div class="col-xs-6" ng-if="minion.vmemoryu">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Virtual memory</h3>
+                </div>
+                <div class="box-body">
+
+                </div>
+            </div>
+        </div>
+        <!--Logged in users, ip,location-->
+        <div class="col-xs-6" ng-if="minion.users">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Online users</h3>
+                </div>
+                <div class="box-body">
+
+                </div>
+            </div>
+        </div>
+        <!--CPU info - Kernel,Operating system,uptime,hostname,number of cpus and proccesor info-->
+        <div class="col-xs-6" ng-if="minion.hwos">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">HW & OS onfo</h3>
+                </div>
+                <div class="box-body">
+
+                </div>
+            </div>
+        </div>
+        <!--load average-->
+        <div class="col-xs-6" ng-if="minion.loada">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Load average</h3>
+                </div>
+                <div class="box-body">
+
+                </div>
+            </div>
+        </div>
+        <!--Internet Traffic-->
+        <div class="col-xs-6" ng-if="minion.internetu">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Internet traffic</h3>
+                </div>
+                <div class="box-body">
+
+                </div>
+            </div>
+        </div>
+        <!--Disk Reads/writes-->
+        <div class="col-xs-6" ng-if="minion.diskrw">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Disk Reads/writes</h3>
+                </div>
+                <div class="box-body">
+
+                </div>
+            </div>
+        </div>
+        <!--Disk usage - each partition(size,used(in GB), available)-->
+        <div class="col-xs-6" ng-if="minion.disku">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Disk usage</h3>
+                </div>
+                <div class="box-body">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </section>
+    {% endverbatim %}
