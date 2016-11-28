@@ -1,5 +1,5 @@
 __author__ = 'InshinA'
-# was modified by marat :)
+
 import requests
 import ssl
 import json
