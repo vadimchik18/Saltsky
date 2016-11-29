@@ -12,7 +12,8 @@ from models import get_minion, \
     get_internet_traffic, \
     get_load_average, \
     get_online_users, \
-    get_vmemory_usage
+    get_vmemory_usage, \
+    get_cpu_usage
 
 
 def get_index_tpl(request):
@@ -45,6 +46,9 @@ def handler500(request):
                                   context_instance=RequestContext(request))
     response.status_code = 500
     return response
+def get_disk_ops_v(request):
+    ret=get_disk_ops(request.GET.get('minion'))
+    return JsonResponse([ret], safe=False)
 
 def get_memory_usage_v(request):
     ret=get_memory_usage(request.GET.get('minion'))
@@ -70,10 +74,10 @@ def get_internet_traffic_v(request):
     ret=get_internet_traffic(request.GET.get('minion'))
     return JsonResponse([ret], safe=False)
 
-def get_disk_ops_v(request):
-    ret=get_disk_ops(request.GET.get('minion'))
-    return JsonResponse([ret], safe=False)
-
 def get_disk_usage_v(request):
     ret=get_disk_usage(request.GET.get('minion'))
+    return JsonResponse([ret], safe=False)
+
+def get_cpu_usage_v(request):
+    ret=get_cpu_usage(request.GET.get('minion'))
     return JsonResponse([ret], safe=False)

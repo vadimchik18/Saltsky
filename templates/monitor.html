@@ -31,105 +31,129 @@
 
     <div class="row" ng-if="selectedMin">
         <!--CPU usage - as a % pie chart(Used Vs Free)-->
-        <div class="col-xs-6" ng-if="minion.cpuu">
-            <div class="box box-solid">
+        <div class="col-xs-6">
+            <div class="box box-primary box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">CPU usage</h3>
                 </div>
                 <div class="box-body">
-
+                    {{ data.cpu[0][selectedMin] }}
                 </div>
             </div>
         </div>
         <!--Memory Usage - used, cached etc. - Area Chart-->
         <div class="col-xs-6">
-            <div class="box box-solid">
+            <div class="box box-primary box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Memory usage</h3>
                 </div>
                 <div class="box-body">
-                    {{ memUsage[0] | json }}
+                    <pre>{{ data.memory[0][selectedMin] | json }}</pre>
                 </div>
             </div>
         </div>
         <!--Virtual Memory-->
         <div class="col-xs-6">
-            <div class="box box-solid">
+            <div class="box box-primary box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Virtual memory</h3>
                 </div>
                 <div class="box-body">
-
+                    <pre>{{ data.vmemory[0][selectedMin] | json}}</pre>
                 </div>
             </div>
         </div>
         <!--Logged in users, ip,location-->
         <div class="col-xs-6">
-            <div class="box box-solid">
+            <div class="box box-primary box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Online users</h3>
                 </div>
                 <div class="box-body">
-
+                    <pre>{{ data.users[0][selectedMin] | json}}</pre>
                 </div>
             </div>
         </div>
         <!--CPU info - Kernel,Operating system,uptime,hostname,number of cpus and proccesor info-->
         <div class="col-xs-6">
-            <div class="box box-solid">
+            <div class="box box-primary box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">HW & OS onfo</h3>
                 </div>
                 <div class="box-body">
-
+                    <pre>{{ data.hwos[0][selectedMin] | json}}</pre>
                 </div>
             </div>
         </div>
         <!--load average-->
         <div class="col-xs-6">
-            <div class="box box-solid">
+            <div class="box box-primary box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Load average</h3>
                 </div>
                 <div class="box-body">
-
+                    <pre>{{ data.loadAvg[0][selectedMin] | json}}</pre>
                 </div>
             </div>
         </div>
         <!--Internet Traffic-->
         <div class="col-xs-6">
-            <div class="box box-solid">
+            <div class="box box-primary box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Internet traffic</h3>
                 </div>
                 <div class="box-body">
-
+                    <pre>{{ data.ifOps[0][selectedMin] | json}}</pre>
                 </div>
             </div>
         </div>
         <!--Disk Reads/writes-->
         <div class="col-xs-6">
-            <div class="box box-solid">
+            <div class="box box-primary box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Disk Reads/writes</h3>
                 </div>
                 <div class="box-body">
-
+                    <pre>{{ data.diskOps[0][selectedMin] | json}}</pre>
                 </div>
             </div>
         </div>
         <!--Disk usage - each partition(size,used(in GB), available)-->
         <div class="col-xs-6">
-            <div class="box box-solid">
+            <div class="box box-primary box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Disk usage</h3>
                 </div>
-                <div class="box-body">
+                <div class="box-body table-responsive no-padding">
+
+                    <pre>{{ data.diskUsage[0][selectedMin] | json}}</pre>
+                </div>
+            </div>
+        </div>
+        <!--Test section!!!-->
+        <div class="col-xs-12">
+            <div class="box box-primary box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">TEST SECTION!!!</h3>
+                    <button class="btn btn-block btn-primary" ng-click="actFunc=getMemory(); actTimeout=5000;callData()" type="button">Memory</button>
+                    <button class="btn btn-block btn-primary" ng-click="actFunc=getVMemory(); actTimeout=5000;callData()" type="button">VMemory</button>
+                    <button class="btn btn-block btn-primary" ng-click="actFunc=getIfOps(); actTimeout=5000;callData()" type="button">IfOps</button>
+                    <button class="btn btn-block btn-primary" ng-click="actFunc=getLoadAvg(); actTimeout=5000;callData()" type="button">LoadAvg</button>
+                    <button class="btn btn-block btn-primary" ng-click="actFunc=getDiskOps(); actTimeout=5000;callData()" type="button">DiskOps</button>
+                    <button class="btn btn-block btn-primary" ng-click="actFunc=getCpu(); actTimeout=5000;callData()" type="button">CPU</button>
+                </div>
+                <div class="box-body table-responsive no-padding">
+
+                    <pre>{{ storage.memory }}</pre>
+                    <pre>{{ storage.vmemory }}</pre>
+                    <pre>{{ storage.ifOps }}</pre>
+                    <pre>{{ storage.loadAvg }}</pre>
+                    <pre>{{ storage.diskOps }}</pre>
+                    <pre>{{ storage.cpu }}</pre>
 
                 </div>
             </div>
         </div>
-
     </div>
     </section>
     {% endverbatim %}

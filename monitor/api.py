@@ -17,7 +17,7 @@ urllib3.disable_warnings()
 #Configuration
 #Server with working Salt-API and RET API
 #Format is srv="https://127.0.0.1:8000"
-from pandemonium.settings import SALT_REST_LOGIN, SALT_REST_PASSWORD, SALT_REST_SERVER_ADDR
+from monitor.settings import SALT_REST_LOGIN, SALT_REST_PASSWORD, SALT_REST_SERVER_ADDR
 
 #module for get readable content from remote salt master master
 
@@ -130,7 +130,9 @@ class Api(object):
         cookies = self.response.cookies
         response = ""
         data_orig = dict(self.data)
-
+        self.data["arg"]=False
+        self.data["fun"]=False
+        self.data["tgt"]=False
         for key in data.keys():
 
             self.data[key]=data[key]
@@ -175,11 +177,16 @@ class Api(object):
         self.login()
         begin_cycle=time.time()
         run_url = "/run/"
-        print (self.response)
+
         cookies = self.response.cookies
         response = ""
         data_orig = self.data
-
+        try:
+            self.data["arg"].pop()
+            self.data["fun"].pop()
+            self.data["tgt"].pop()
+        except:
+            pass
         for key in data.keys():
 
             self.data[key]=data[key]
