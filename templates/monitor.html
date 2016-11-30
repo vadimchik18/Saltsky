@@ -16,6 +16,9 @@
             Select a minion <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+            <li>
+                <a ng-click="selectMin('barzilay.v.brsh.co');loadData(all=true)">barzilay.v.brsh.co</a>
+            </li>
             <li ng-repeat="(name,stat) in minns[0]" >
                 <a ng-click="selectMin(name);loadData(all=true)">
                     <i ng-if="minns[0][name] == true" class="fa fa-circle-o text-green"></i>
@@ -37,7 +40,11 @@
                     <h3 class="box-title">CPU usage</h3>
                 </div>
                 <div class="box-body">
-                    {{ data.cpu[0][selectedMin] }}
+
+
+                    <canvas style="width: 150px;height: 150px" id="doughnut" class="chart chart-doughnut" chart-labels="storage.cpuLegend" chart-data="storage.cpu"
+
+                       </canvas>
                 </div>
             </div>
         </div>
@@ -135,12 +142,12 @@
             <div class="box box-primary box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">TEST SECTION!!!</h3>
-                    <button class="btn btn-block btn-primary" ng-click="actFunc=getMemory(); actTimeout=5000;callData()" type="button">Memory</button>
-                    <button class="btn btn-block btn-primary" ng-click="actFunc=getVMemory(); actTimeout=5000;callData()" type="button">VMemory</button>
-                    <button class="btn btn-block btn-primary" ng-click="actFunc=getIfOps(); actTimeout=5000;callData()" type="button">IfOps</button>
-                    <button class="btn btn-block btn-primary" ng-click="actFunc=getLoadAvg(); actTimeout=5000;callData()" type="button">LoadAvg</button>
-                    <button class="btn btn-block btn-primary" ng-click="actFunc=getDiskOps(); actTimeout=5000;callData()" type="button">DiskOps</button>
-                    <button class="btn btn-block btn-primary" ng-click="actFunc=getCpu(); actTimeout=5000;callData()" type="button">CPU</button>
+                    <button class="btn btn-block btn-primary" ng-click="repeater(getMemory, 10000);vmemhide=!vmemhide" type="button">Memory</button>
+                    <button class="btn btn-block btn-primary" ng-click="repeater(getVMemory, 10000);memhide=!memhide" type="button">VMemory</button>
+                    <button class="btn btn-block btn-primary" ng-click="repeater(getIfOps, 10000);ifopshide=!ifopshide" type="button">IfOps</button>
+                    <button class="btn btn-block btn-primary" ng-click="repeater(getLoadAvg, 10000);loadavghide=!loadavghide" type="button">LoadAvg</button>
+                    <button class="btn btn-block btn-primary" ng-click="repeater(getDiskOps, 10000);diskopshide=!diskopshide" type="button">DiskOps</button>
+                    <button class="btn btn-block btn-primary" ng-click="repeater(getCpu, 10000);cpuhide=!cpuhide" type="button">CPU</button>
                 </div>
                 <div class="box-body table-responsive no-padding">
 

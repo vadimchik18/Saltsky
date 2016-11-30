@@ -1,4 +1,4 @@
-var skysalt = angular.module('skysalt',['ngRoute','ui.bootstrap','ngAnimate','ngResource']);
+var skysalt = angular.module('skysalt',['chart.js','ngRoute','ui.bootstrap','ngAnimate','ngResource']);
 
 skysalt.config(function($routeProvider, $httpProvider) {
 
@@ -53,7 +53,7 @@ skysalt.controller("minionsCtrl", function($scope, $resource){
     )};
 
     $scope.loadData = function(all){
-        console.log($scope.selectedMin)
+        console.log($scope.selectedMin);
         $scope.data={};
 
         if (all == true && $scope.selectedMin){
@@ -69,7 +69,7 @@ skysalt.controller("minionsCtrl", function($scope, $resource){
             console.log($scope.data);
                         $scope.data.memory=     $resource('data/minion/memory?minion='+$scope.selectedMin).query(function(e){console.log(e)});
             /*Here define containers to store dynamic data*/
-            $scope.storage={}
+            $scope.storage={};
             $scope.storage.memory   =[];
             $scope.storage.vmemory  =[];
             $scope.storage.ifOps    =[];
@@ -80,57 +80,77 @@ skysalt.controller("minionsCtrl", function($scope, $resource){
             /*Here is functions to gettin data*/
             $scope.getMemory    = function(){
 
-                $scope.tmp=$resource('data/minion/memory?minion='+$scope.selectedMin).query();
-                $scope.storage.memory.push($scope.tmp);
-                $scope.crop($scope.storage.memory)
+                $scope.tmp=$resource('data/minion/memory?minion='+$scope.selectedMin).query(function() {
+                    $scope.storage.memory.push($scope.tmp);
+                    $scope.crop($scope.storage.memory, 21)
+                });
+
             };
             $scope.getVMemory   = function(){
 
-                $scope.tmp=$resource('data/minion/vmemory?minion='+$scope.selectedMin).query(function(e){console.log(e)});
-                $scope.storage.vmemory.push(tmp);
-                $scope.crop($scope.storage.vmemory)
+                $scope.tmp=$resource('data/minion/vmemory?minion='+$scope.selectedMin).query(function(e){
+                    console.log(e);
+                    $scope.storage.vmemory.push($scope.tmp);
+                    $scope.crop($scope.storage.vmemory,21)
+                });
+
             };
             $scope.getIfOps     = function() {
 
-                $scope.tmp=$resource('data/minion/ifops?minion='+vm.selectedMin).query(function(e){console.log(e)});
-                $scope.storage.ifOps.push(tmp);
-                $scope.crop($scope.storage.ifOps)
+                $scope.tmp=$resource('data/minion/ifops?minion='+vm.selectedMin).query(function(e){
+                    console.log(e);
+                   $scope.storage.ifOps.push($scope.tmp);
+                    $scope.crop($scope.storage.ifOps,21)
+                });
+
             };
             $scope.getLoadAvg   = function() {
 
-                $scope.tmp=$resource('data/minion/loadav?minion='+vm.selectedMin).query(function(e){console.log(e)});
-                $scope.storage.loadAvg.push(tmp);
-                $scope.crop($scope.storage.loadAvg)
+                $scope.tmp=$resource('data/minion/loadav?minion='+vm.selectedMin).query(function(e){
+                    console.log(e);
+                    $scope.storage.loadAvg.push($scope.tmp);
+                    $scope.crop($scope.storage.loadAvg,21)
+                });
+
             };
             $scope.getDiskOps   = function() {
 
-                $scope.tmp=$resource('data/minion/disk?minion='+vm.selectedMin).query(function(e){console.log(e)});
-                $scope.storage.diskOps.push(tmp);
-                $scope.crop($scope.storage.diskOps)
+                $scope.tmp=$resource('data/minion/disk?minion='+vm.selectedMin).query(function(e){
+                    console.log(e);
+                    $scope.storage.diskOps.push($scope.tmp);
+                    $scope.crop($scope.storage.diskOps,21)
+                });
+
             };
             $scope.getCpu       = function() {
 
-                $scope.tmp=$resource('data/minion/cpu?minion='+vm.selectedMin).query(function(e){console.log(e)});
-                $scope.storage.cpu.push(tmp);
-                $scope.crop($scope.storage.cpu)
+                $scope.tmp=$resource('data/minion/cpu?minion='+vm.selectedMin).query(function(e){
+                    console.log(e);
+                    $scope.storage.cpu.push($scope.tmp[0][vm.selectedMin]);
+                    $scope.storage.cpu.push(100-$scope.tmp[0][vm.selectedMin]);
+                    $scope.crop($scope.storage.cpu,3)
+                    $scope.storage.cpuLegend=["Used","Free"]
+                });
+
+
+
+
             };
 
             /*Crop arrays*/
-            $scope.crop = function(arr){
-                while (arr.length >= 21){
+            $scope.crop = function(arr, len){
+
+                while (arr.length >= len){
                     arr.shift()
                 }
             };
 
             /*Here is setInterval funct to periodically call new data*/
-            $scope.actFunc=true;
-            $scope.actTimeout=true;
-            setTimeout(function callData(){
-                  $scope.actFunc();
-                  setTimeout(callData(), $scope.actTimeout);
-                }, $scope.actTimeout);
+            $scope.repeater = function(name,timer){
+                setInterval(name,timer)
+            }
 
-            $scope.callData=callData;
+
         }else{
             alert("minion not selected or invalid!")
         }

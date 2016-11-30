@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65f6ccf1-09b6-4b8a-aee6-ef5cbda38410" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/monitor/api.py" afterPath="$PROJECT_DIR$/monitor/api.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/models.py" afterPath="$PROJECT_DIR$/base/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/monitor.html" afterPath="$PROJECT_DIR$/templates/monitor.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/sky.js" afterPath="$PROJECT_DIR$/static/js/sky.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/urls.py" afterPath="$PROJECT_DIR$/base/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/views.py" afterPath="$PROJECT_DIR$/base/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="monitor.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,16 +76,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.961538" vertical-offset="1156" max-vertical-offset="5644">
-              <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/monitor/settings.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,28 +105,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monitor.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/monitor.html">
+      <file leaf-file-name="sky.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/sky.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6923075" vertical-offset="2155" max-vertical-offset="2788">
-              <caret line="137" column="91" selection-start-line="137" selection-start-column="89" selection-end-line="137" selection-end-column="91" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1254" max-vertical-offset="2176">
+              <caret line="131" column="58" selection-start-line="131" selection-start-column="58" selection-end-line="131" selection-end-column="58" />
+              <folding>
+                <element signature="e#3675#3936#0" expanded="false" />
+                <element signature="e#3781#3919#0" expanded="false" />
+                <element signature="e#3982#4281#0" expanded="false" />
+                <element signature="e#4328#4616#0" expanded="false" />
+                <element signature="e#4663#4957#0" expanded="false" />
+                <element signature="e#5004#5296#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sky.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/sky.js">
+      <file leaf-file-name="monitor.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/monitor.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8399247" vertical-offset="1220" max-vertical-offset="1989">
-              <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.6059406" vertical-offset="408" max-vertical-offset="2907">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
-                <element signature="e#3662#3880#0" expanded="false" />
-                <element signature="e#3926#4167#0" expanded="false" />
-                <element signature="e#4214#4445#0" expanded="false" />
-                <element signature="e#4492#4728#0" expanded="false" />
-                <element signature="e#4775#5009#0" expanded="false" />
-                <element signature="e#5056#5281#0" expanded="false" />
+                <element signature="n#style#0;n#canvas#0;n#div#1;n#div#0;n#div#0;n#div#1;n#section#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,13 +147,13 @@
         <option value="$PROJECT_DIR$/templates/404.html" />
         <option value="C:/Python27/Lib/site-packages/django/template/utils.py" />
         <option value="$PROJECT_DIR$/monitor/settings.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/base/views.py" />
         <option value="$PROJECT_DIR$/base/models.py" />
         <option value="$PROJECT_DIR$/base/urls.py" />
         <option value="$PROJECT_DIR$/monitor/api.py" />
-        <option value="$PROJECT_DIR$/templates/monitor.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/static/js/sky.js" />
+        <option value="$PROJECT_DIR$/templates/monitor.html" />
       </list>
     </option>
   </component>
@@ -1358,7 +1346,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1412,7 +1400,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#div#1;n#div#0;n#div#0;n#div#1;n#section#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1437,12 +1427,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="425">
           <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
           <folding>
-            <element signature="e#3662#3880#0" expanded="false" />
-            <element signature="e#3926#4167#0" expanded="false" />
-            <element signature="e#4214#4445#0" expanded="false" />
-            <element signature="e#4492#4728#0" expanded="false" />
-            <element signature="e#4775#5009#0" expanded="false" />
-            <element signature="e#5056#5281#0" expanded="false" />
+            <element signature="e#3675#3936#0" expanded="false" />
+            <element signature="e#3781#3919#0" expanded="false" />
+            <element signature="e#3982#4281#0" expanded="false" />
+            <element signature="e#4328#4616#0" expanded="false" />
+            <element signature="e#4663#4957#0" expanded="false" />
+            <element signature="e#5004#5296#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1514,7 +1504,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="544">
           <caret line="17" column="46" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="46" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#div#1;n#div#0;n#div#0;n#div#1;n#section#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1539,12 +1531,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3662#3880#0" expanded="false" />
-            <element signature="e#3926#4167#0" expanded="false" />
-            <element signature="e#4214#4445#0" expanded="false" />
-            <element signature="e#4492#4728#0" expanded="false" />
-            <element signature="e#4775#5009#0" expanded="false" />
-            <element signature="e#5056#5281#0" expanded="false" />
+            <element signature="e#3675#3936#0" expanded="false" />
+            <element signature="e#3781#3919#0" expanded="false" />
+            <element signature="e#3982#4281#0" expanded="false" />
+            <element signature="e#4328#4616#0" expanded="false" />
+            <element signature="e#4663#4957#0" expanded="false" />
+            <element signature="e#5004#5296#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1623,7 +1615,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#div#1;n#div#0;n#div#0;n#div#1;n#section#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1800,14 +1794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.961538" vertical-offset="1156" max-vertical-offset="5644">
-          <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/404.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09893993" vertical-offset="12388" max-vertical-offset="12954">
@@ -1869,6 +1855,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7405941" vertical-offset="0" max-vertical-offset="5661">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/base/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="251" max-vertical-offset="782">
@@ -1887,25 +1881,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/monitor.html">
+    <entry file="file://$PROJECT_DIR$/static/js/sky.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6923075" vertical-offset="2155" max-vertical-offset="2788">
-          <caret line="137" column="91" selection-start-line="137" selection-start-column="89" selection-end-line="137" selection-end-column="91" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1254" max-vertical-offset="2176">
+          <caret line="131" column="58" selection-start-line="131" selection-start-column="58" selection-end-line="131" selection-end-column="58" />
+          <folding>
+            <element signature="e#3675#3936#0" expanded="false" />
+            <element signature="e#3781#3919#0" expanded="false" />
+            <element signature="e#3982#4281#0" expanded="false" />
+            <element signature="e#4328#4616#0" expanded="false" />
+            <element signature="e#4663#4957#0" expanded="false" />
+            <element signature="e#5004#5296#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/sky.js">
+    <entry file="file://$PROJECT_DIR$/templates/monitor.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8399247" vertical-offset="1220" max-vertical-offset="1989">
-          <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.6059406" vertical-offset="408" max-vertical-offset="2907">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
-            <element signature="e#3662#3880#0" expanded="false" />
-            <element signature="e#3926#4167#0" expanded="false" />
-            <element signature="e#4214#4445#0" expanded="false" />
-            <element signature="e#4492#4728#0" expanded="false" />
-            <element signature="e#4775#5009#0" expanded="false" />
-            <element signature="e#5056#5281#0" expanded="false" />
+            <element signature="n#style#0;n#canvas#0;n#div#1;n#div#0;n#div#0;n#div#1;n#section#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
