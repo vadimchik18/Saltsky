@@ -88,7 +88,13 @@
                     <h3 class="box-title">HW & OS onfo</h3>
                 </div>
                 <div class="box-body">
-                    <pre>{{ data.hwos[0][selectedMin] | json}}</pre>
+                    <pre>{{ data.hwos[0][selectedMin].kernel}}</pre>
+                    <pre>{{ data.hwos[0][selectedMin].osfullname}}</pre>
+                    <pre>{{ data.hwos[0][selectedMin].osrelease}}</pre>
+                    <pre>{{ data.hwos[0][selectedMin].nodename}}</pre>
+                    <pre>{{ data.hwos[0][selectedMin].cpu_model}}</pre>
+                    <pre>{{ data.hwos[0][selectedMin].num_cpus}}</pre>
+
                 </div>
             </div>
         </div>
@@ -121,7 +127,15 @@
                     <h3 class="box-title">Disk Reads/writes</h3>
                 </div>
                 <div class="box-body">
-                    <pre>{{ data.diskOps[0][selectedMin] | json}}</pre>
+                    <!--<pre>{{ data.diskOps[0][selectedMin] | json}}</pre>-->
+                    <canvas id="line"
+                            class="chart chart-line"
+                            chart-data="storage.diskOps[0]"
+                            chart-labels="storage.diskOps.legend"
+                            chart-series="storage.diskOps.States"
+                            chart-options="storage.diskOps.options"
+                            chart-dataset-override="storage.diskOps.datasetOverride">
+</canvas>
                 </div>
             </div>
         </div>

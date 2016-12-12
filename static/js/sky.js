@@ -116,9 +116,25 @@ skysalt.controller("minionsCtrl", function($scope, $resource){
             $scope.getDiskOps   = function() {
 
                 $scope.tmp=$resource('data/minion/disk?minion='+vm.selectedMin).query(function(e){
-                    console.log(e);
-                    $scope.storage.diskOps.push($scope.tmp);
-                    $scope.crop($scope.storage.diskOps,21)
+                    //console.log(e);
+                    $scope.storage.diskOps.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+                    $scope.storage.diskOps.options = {scales: {yAxes: [{id: 'y-axis-1',type: 'linear',display: true,position: 'left'},{id: 'y-axis-2',type: 'linear',display: true,position: 'right'}]}};
+                    $scope.d = new Date();
+
+                    $scope.storage.diskOps.legend=[];
+                    $scope.storage.diskOps.States=[];
+                    $scope.storage.diskOps.legend=[];
+                    $scope.storage.diskOps.legend.push($scope.d.getHours()+":"+ $scope.d.getMinutes());
+                    console.log($scope.tmp[0][vm.selectedMin].replace(new RegExp("sdiskio(",'g'),"[").replace(new RegExp(")",'g'),"]"));
+                                        console.log(JSON.parse($scope.tmp[0][vm.selectedMin].replace(new RegExp("sdiskio(",'g'),"[").replace(new RegExp(")",'g'),"]")));
+                    $scope.storage.diskOps.States=["R/W count","R/W time"];
+                    $scope.storage.diskOps[0]=[];
+                    $scope.storage.diskOps[0].push($scope.tmp[0][vm.selectedMin].sdiskio.read_count);
+                    $scope.storage.diskOps[0].push($scope.tmp[0][vm.selectedMin].sdiskio.write_count);
+                    $scope.storage.diskOps[0].push($scope.tmp[0][vm.selectedMin].sdiskio.read_time);
+                    $scope.storage.diskOps[0].push(JSON.parse(e[0][vm.selectedMin]));
+
+                    $scope.crop($scope.storage.diskOps,25)
                 });
 
             };
@@ -128,7 +144,7 @@ skysalt.controller("minionsCtrl", function($scope, $resource){
                     console.log(e);
                     $scope.storage.cpu.push($scope.tmp[0][vm.selectedMin]);
                     $scope.storage.cpu.push(100-$scope.tmp[0][vm.selectedMin]);
-                    $scope.crop($scope.storage.cpu,3)
+                    $scope.crop($scope.storage.cpu,3);
                     $scope.storage.cpuLegend=["Used","Free"]
                 });
 
